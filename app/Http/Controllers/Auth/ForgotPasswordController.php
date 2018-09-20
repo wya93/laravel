@@ -27,27 +27,15 @@ class ForgotPasswordController extends Controller
      */
 
     protected $redirectTo = '/';
-    
+
     public function __construct()
     {
         $this->middleware('guest');
     }
 
-    public function showLinkRequestForm()
+    public function showResetForm($token)
     {
-
-    }
-    public function sendResetLinkEmail()
-    {
-        
+        return view('auth.passwords.reset', $token);
     }
 
-    public function showResetForm()
-    {
-        
-    }
-    public function reset()
-    {
-        
-    }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use App\Notifications\ResetPassword;
 use Mail;
 
 class UsersController extends Controller
@@ -120,5 +121,9 @@ class UsersController extends Controller
         return view('emails.confirm');
     }
 
-    
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPassword($token));
+    }
+
 }

@@ -19,7 +19,6 @@ class SessionsController extends Controller
     }
     public function create() 
     {
-        Auth::logout();
         return view('session.create');
     }
 
